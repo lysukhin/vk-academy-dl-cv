@@ -20,6 +20,9 @@ from hack_utils import ScaleMinSideToSize, CropCenter, TransformByKeys
 from hack_utils import ThousandLandmarksDataset
 from hack_utils import restore_landmarks_batch, create_submission
 
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 
 def parse_arguments():
     parser = ArgumentParser(__doc__)
