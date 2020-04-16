@@ -85,9 +85,17 @@ class ThousandLandmarksDataset(data.Dataset):
         self.landmarks = []
 
         with open(landmark_file_name, "rt") as fp:
+            num_lines = sum(1 for line in fp)
+        num_lines -= 1  # header
+
+        with open(landmark_file_name, "rt") as fp:
             for i, line in tqdm.tqdm(enumerate(fp)):
                 if i == 0:
-                    continue
+                    continue  # skip header
+                if split == "train" and i == int(TRAIN_SIZE * num_lines):
+                    break  # reached end of train part of data
+                elif split == "val" and i < int(TRAIN_SIZE * num_lines):
+                    continue  # has not reached start of val part of data
                 elements = line.strip().split("\t")
                 image_name = os.path.join(images_root, elements[0])
                 self.image_names.append(image_name)
@@ -97,14 +105,7 @@ class ThousandLandmarksDataset(data.Dataset):
                     landmarks = np.array(landmarks, dtype=np.int16).reshape((len(landmarks) // 2, 2))
                     self.landmarks.append(landmarks)
 
-        split_idxs = {"train": list(range(0, int(TRAIN_SIZE * len(self.image_names)))),
-                      "val": list(range(int(TRAIN_SIZE * len(self.image_names)), len(self.image_names))),
-                      "test": list(range(len(self.image_names)))}
-        idxs = split_idxs[split]
-
-        self.image_names = [self.image_names[i] for i in idxs]
         if split in ("train", "val"):
-            self.landmarks = [self.landmarks[i] for i in idxs]
             self.landmarks = torch.as_tensor(self.landmarks)
         else:
             self.landmarks = None
