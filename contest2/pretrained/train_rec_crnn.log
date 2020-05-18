@@ -1,0 +1,133 @@
+2020-05-18 11:34:57 Start training with params:
+2020-05-18 11:34:57 Argument augs: 0
+2020-05-18 11:34:57 Argument batch_size: 128
+2020-05-18 11:34:57 Argument data_path: '/mnt/kaggle-made2/data'
+2020-05-18 11:34:57 Argument epochs: 100
+2020-05-18 11:34:57 Argument input_wh: '320x32'
+2020-05-18 11:34:57 Argument load: None
+2020-05-18 11:34:57 Argument lr: 0.0001
+2020-05-18 11:34:57 Argument lr_gamma: None
+2020-05-18 11:34:57 Argument lr_step: None
+2020-05-18 11:34:57 Argument output_dir: '/tmp/logs_rec/'
+2020-05-18 11:34:57 Argument rnn_dropout: 0.1
+2020-05-18 11:34:57 Argument rnn_num_directions: 1
+2020-05-18 11:34:57 Argument val_split: 0.8
+2020-05-18 11:34:57 Argument weight_decay: 0.0005
+2020-05-18 11:35:00 Model type: RecognitionModel
+2020-05-18 11:35:01 Length of train/val=21444/5361
+2020-05-18 11:35:01 Number of batches of train/val=168/42
+2020-05-18 11:35:01 Starting epoch 1/100.
+2020-05-18 11:35:24 Epoch finished! Loss: 3.42295
+2020-05-18 11:35:26 Valid acc: 0.00000, acc_ed: 7.70192 (best)
+2020-05-18 11:35:27 Starting epoch 2/100.
+2020-05-18 11:35:48 Epoch finished! Loss: 2.69272
+2020-05-18 11:35:51 Valid acc: 0.00000, acc_ed: 5.89610 (best 0.00000)
+2020-05-18 11:35:51 Starting epoch 3/100.
+2020-05-18 11:36:14 Epoch finished! Loss: 1.92438
+2020-05-18 11:36:16 Valid acc: 0.00000, acc_ed: 3.70043 (best 0.00000)
+2020-05-18 11:36:16 Starting epoch 4/100.
+2020-05-18 11:36:37 Epoch finished! Loss: 1.28387
+2020-05-18 11:36:40 Valid acc: 0.00858, acc_ed: 2.64615 (best)
+2020-05-18 11:36:41 Starting epoch 5/100.
+2020-05-18 11:37:03 Epoch finished! Loss: 0.97298
+2020-05-18 11:37:05 Valid acc: 0.07573, acc_ed: 1.81365 (best)
+2020-05-18 11:37:06 Starting epoch 6/100.
+2020-05-18 11:37:28 Epoch finished! Loss: 0.62992
+2020-05-18 11:37:30 Valid acc: 0.61201, acc_ed: 0.55158 (best)
+2020-05-18 11:37:31 Starting epoch 7/100.
+2020-05-18 11:37:53 Epoch finished! Loss: 0.32175
+2020-05-18 11:37:55 Valid acc: 0.88025, acc_ed: 0.19586 (best)
+2020-05-18 11:37:56 Starting epoch 8/100.
+2020-05-18 11:38:18 Epoch finished! Loss: 0.15743
+2020-05-18 11:38:20 Valid acc: 0.89703, acc_ed: 0.17665 (best)
+2020-05-18 11:38:21 Starting epoch 9/100.
+2020-05-18 11:38:42 Epoch finished! Loss: 0.09406
+2020-05-18 11:38:45 Valid acc: 0.90860, acc_ed: 0.15352 (best)
+2020-05-18 11:38:45 Starting epoch 10/100.
+2020-05-18 11:39:06 Epoch finished! Loss: 0.06549
+2020-05-18 11:39:08 Valid acc: 0.90823, acc_ed: 0.14997 (best 0.90860)
+2020-05-18 11:39:08 Starting epoch 11/100.
+2020-05-18 11:39:30 Epoch finished! Loss: 0.04963
+2020-05-18 11:39:32 Valid acc: 0.90021, acc_ed: 0.16713 (best 0.90860)
+2020-05-18 11:39:32 Starting epoch 12/100.
+2020-05-18 11:39:54 Epoch finished! Loss: 0.04104
+2020-05-18 11:39:57 Valid acc: 0.90935, acc_ed: 0.14960 (best)
+2020-05-18 11:39:57 Starting epoch 13/100.
+2020-05-18 11:40:19 Epoch finished! Loss: 0.03421
+2020-05-18 11:40:21 Valid acc: 0.90636, acc_ed: 0.15519 (best 0.90935)
+2020-05-18 11:40:22 Starting epoch 14/100.
+2020-05-18 11:40:44 Epoch finished! Loss: 0.03052
+2020-05-18 11:40:46 Valid acc: 0.90990, acc_ed: 0.14941 (best)
+2020-05-18 11:40:47 Starting epoch 15/100.
+2020-05-18 11:41:08 Epoch finished! Loss: 0.02969
+2020-05-18 11:41:10 Valid acc: 0.90338, acc_ed: 0.15389 (best 0.90990)
+2020-05-18 11:41:10 Starting epoch 16/100.
+2020-05-18 11:41:32 Epoch finished! Loss: 0.03034
+2020-05-18 11:41:34 Valid acc: 0.89909, acc_ed: 0.16508 (best 0.90990)
+2020-05-18 11:41:34 Starting epoch 17/100.
+2020-05-18 11:41:56 Epoch finished! Loss: 0.02788
+2020-05-18 11:41:58 Valid acc: 0.90450, acc_ed: 0.15837 (best 0.90990)
+2020-05-18 11:41:58 Starting epoch 18/100.
+2020-05-18 11:42:20 Epoch finished! Loss: 0.02109
+2020-05-18 11:42:23 Valid acc: 0.91718, acc_ed: 0.13430 (best)
+2020-05-18 11:42:23 Starting epoch 19/100.
+2020-05-18 11:42:46 Epoch finished! Loss: 0.01649
+2020-05-18 11:42:48 Valid acc: 0.91699, acc_ed: 0.13542 (best 0.91718)
+2020-05-18 11:42:48 Starting epoch 20/100.
+2020-05-18 11:43:11 Epoch finished! Loss: 0.01501
+2020-05-18 11:43:13 Valid acc: 0.91998, acc_ed: 0.12815 (best)
+2020-05-18 11:43:14 Starting epoch 21/100.
+2020-05-18 11:43:36 Epoch finished! Loss: 0.01347
+2020-05-18 11:43:38 Valid acc: 0.91923, acc_ed: 0.13113 (best 0.91998)
+2020-05-18 11:43:38 Starting epoch 22/100.
+2020-05-18 11:44:01 Epoch finished! Loss: 0.01372
+2020-05-18 11:44:03 Valid acc: 0.90879, acc_ed: 0.14643 (best 0.91998)
+2020-05-18 11:44:03 Starting epoch 23/100.
+2020-05-18 11:44:25 Epoch finished! Loss: 0.03158
+2020-05-18 11:44:27 Valid acc: 0.89032, acc_ed: 0.17963 (best 0.91998)
+2020-05-18 11:44:27 Starting epoch 24/100.
+2020-05-18 11:44:49 Epoch finished! Loss: 0.03009
+2020-05-18 11:44:51 Valid acc: 0.90711, acc_ed: 0.15464 (best 0.91998)
+2020-05-18 11:44:51 Starting epoch 25/100.
+2020-05-18 11:45:12 Epoch finished! Loss: 0.01720
+2020-05-18 11:45:14 Valid acc: 0.91886, acc_ed: 0.12852 (best 0.91998)
+2020-05-18 11:45:14 Starting epoch 26/100.
+2020-05-18 11:45:36 Epoch finished! Loss: 0.01239
+2020-05-18 11:45:39 Valid acc: 0.92874, acc_ed: 0.11509 (best)
+2020-05-18 11:45:39 Starting epoch 27/100.
+2020-05-18 11:46:01 Epoch finished! Loss: 0.00957
+2020-05-18 11:46:03 Valid acc: 0.92856, acc_ed: 0.11267 (best 0.92874)
+2020-05-18 11:46:03 Starting epoch 28/100.
+2020-05-18 11:46:25 Epoch finished! Loss: 0.00800
+2020-05-18 11:46:28 Valid acc: 0.92986, acc_ed: 0.10968 (best)
+2020-05-18 11:46:28 Starting epoch 29/100.
+2020-05-18 11:46:51 Epoch finished! Loss: 0.00741
+2020-05-18 11:46:53 Valid acc: 0.93098, acc_ed: 0.11229 (best)
+2020-05-18 11:46:54 Starting epoch 30/100.
+2020-05-18 11:47:16 Epoch finished! Loss: 0.00844
+2020-05-18 11:47:18 Valid acc: 0.91681, acc_ed: 0.13188 (best 0.93098)
+2020-05-18 11:47:18 Starting epoch 31/100.
+2020-05-18 11:47:39 Epoch finished! Loss: 0.01802
+2020-05-18 11:47:42 Valid acc: 0.87875, acc_ed: 0.19866 (best 0.93098)
+2020-05-18 11:47:42 Starting epoch 32/100.
+2020-05-18 11:48:03 Epoch finished! Loss: 0.03276
+2020-05-18 11:48:06 Valid acc: 0.89591, acc_ed: 0.16937 (best 0.93098)
+2020-05-18 11:48:06 Starting epoch 33/100.
+2020-05-18 11:48:27 Epoch finished! Loss: 0.02060
+2020-05-18 11:48:29 Valid acc: 0.91587, acc_ed: 0.13673 (best 0.93098)
+2020-05-18 11:48:29 Starting epoch 34/100.
+2020-05-18 11:48:49 Epoch finished! Loss: 0.01215
+2020-05-18 11:48:51 Valid acc: 0.91699, acc_ed: 0.13561 (best 0.93098)
+2020-05-18 11:48:51 Starting epoch 35/100.
+2020-05-18 11:49:11 Epoch finished! Loss: 0.01130
+2020-05-18 11:49:13 Valid acc: 0.92408, acc_ed: 0.12050 (best 0.93098)
+2020-05-18 11:49:13 Starting epoch 36/100.
+2020-05-18 11:49:33 Epoch finished! Loss: 0.00821
+2020-05-18 11:49:35 Valid acc: 0.92222, acc_ed: 0.12610 (best 0.93098)
+2020-05-18 11:49:35 Starting epoch 37/100.
+2020-05-18 11:49:54 Epoch finished! Loss: 0.00874
+2020-05-18 11:49:56 Valid acc: 0.92334, acc_ed: 0.12628 (best 0.93098)
+2020-05-18 11:49:57 Starting epoch 38/100.
+2020-05-18 11:50:16 Epoch finished! Loss: 0.01134
+2020-05-18 11:50:18 Valid acc: 0.91923, acc_ed: 0.12722 (best 0.93098)
+2020-05-18 11:50:18 Starting epoch 39/100.

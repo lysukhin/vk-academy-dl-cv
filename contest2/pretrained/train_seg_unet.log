@@ -1,0 +1,78 @@
+2020-05-17 18:31:17 Starting epoch 1/20.
+2020-05-17 18:31:56 Start training with params:
+2020-05-17 18:31:56 Argument batch_size: 40
+2020-05-17 18:31:56 Argument data_path: '/mnt/kaggle-made2/data/'
+2020-05-17 18:31:56 Argument epochs: 20
+2020-05-17 18:31:56 Argument image_size: 256
+2020-05-17 18:31:56 Argument load: False
+2020-05-17 18:31:56 Argument lr: 0.0001
+2020-05-17 18:31:56 Argument lr_gamma: 0.5
+2020-05-17 18:31:56 Argument lr_step: 10
+2020-05-17 18:31:56 Argument model: 'unet'
+2020-05-17 18:31:56 Argument output_dir: '/tmp/logs/'
+2020-05-17 18:31:56 Argument val_split: 0.8
+2020-05-17 18:31:56 Argument weight_bce: 0.5
+2020-05-17 18:31:56 Argument weight_decay: 0.0005
+2020-05-17 18:31:56 Model type: UNet
+2020-05-17 18:31:59 Length of train/val=20505/5127
+2020-05-17 18:31:59 Number of batches of train/val=512/129
+2020-05-17 18:31:59 Starting epoch 1/20.
+2020-05-17 18:40:12 Epoch finished! Loss: 1.62348 (0.18194 | 1.44153)
+2020-05-17 18:42:29 Validation Dice Coeff: 0.67809 (best)
+2020-05-17 18:42:29 Starting epoch 2/20.
+2020-05-17 18:50:44 Epoch finished! Loss: 1.29303 (0.10218 | 1.19084)
+2020-05-17 18:52:57 Validation Dice Coeff: 0.75361 (best)
+2020-05-17 18:52:57 Starting epoch 3/20.
+2020-05-17 19:01:15 Epoch finished! Loss: 1.06149 (0.06540 | 0.99609)
+2020-05-17 19:03:30 Validation Dice Coeff: 0.81672 (best)
+2020-05-17 19:03:31 Starting epoch 4/20.
+2020-05-17 19:11:41 Epoch finished! Loss: 0.87224 (0.04478 | 0.82747)
+2020-05-17 19:13:55 Validation Dice Coeff: 0.83936 (best)
+2020-05-17 19:13:55 Starting epoch 5/20.
+2020-05-17 19:22:07 Epoch finished! Loss: 0.71430 (0.03150 | 0.68280)
+2020-05-17 19:24:25 Validation Dice Coeff: 0.85065 (best)
+2020-05-17 19:24:25 Starting epoch 6/20.
+2020-05-17 19:32:41 Epoch finished! Loss: 0.58889 (0.02363 | 0.56526)
+2020-05-17 19:34:52 Validation Dice Coeff: 0.86129 (best)
+2020-05-17 19:34:52 Starting epoch 7/20.
+2020-05-17 19:43:07 Epoch finished! Loss: 0.48652 (0.01838 | 0.46814)
+2020-05-17 19:45:21 Validation Dice Coeff: 0.90344 (best)
+2020-05-17 19:45:22 Starting epoch 8/20.
+2020-05-17 19:53:31 Epoch finished! Loss: 0.39926 (0.01447 | 0.38478)
+2020-05-17 19:55:47 Validation Dice Coeff: 0.90738 (best)
+2020-05-17 19:55:48 Starting epoch 9/20.
+2020-05-17 20:04:00 Epoch finished! Loss: 0.33224 (0.01202 | 0.32023)
+2020-05-17 20:06:14 Validation Dice Coeff: 0.91390 (best)
+2020-05-17 20:06:15 Starting epoch 10/20.
+2020-05-17 20:14:36 Epoch finished! Loss: 0.28178 (0.01032 | 0.27146)
+2020-05-17 20:16:57 Validation Dice Coeff: 0.91530 (best)
+2020-05-17 20:16:57 Starting epoch 11/20.
+2020-05-17 20:25:22 Epoch finished! Loss: 0.24079 (0.00864 | 0.23215)
+2020-05-17 20:27:45 Validation Dice Coeff: 0.92298 (best)
+2020-05-17 20:27:45 Starting epoch 12/20.
+2020-05-17 20:36:12 Epoch finished! Loss: 0.22004 (0.00806 | 0.21198)
+2020-05-17 20:38:26 Validation Dice Coeff: 0.91957 (best 0.92298)
+2020-05-17 20:38:26 Starting epoch 13/20.
+2020-05-17 20:46:51 Epoch finished! Loss: 0.20135 (0.00757 | 0.19378)
+2020-05-17 20:49:05 Validation Dice Coeff: 0.92498 (best)
+2020-05-17 20:49:05 Starting epoch 14/20.
+2020-05-17 20:57:27 Epoch finished! Loss: 0.18296 (0.00710 | 0.17586)
+2020-05-17 20:59:42 Validation Dice Coeff: 0.92427 (best 0.92498)
+2020-05-17 20:59:42 Starting epoch 15/20.
+2020-05-17 21:08:05 Epoch finished! Loss: 0.15371 (0.00631 | 0.14741)
+2020-05-17 21:10:26 Validation Dice Coeff: 0.92487 (best 0.92498)
+2020-05-17 21:10:26 Starting epoch 16/20.
+2020-05-17 21:18:58 Epoch finished! Loss: 0.13493 (0.00570 | 0.12922)
+2020-05-17 21:21:15 Validation Dice Coeff: 0.92770 (best)
+2020-05-17 21:21:16 Starting epoch 17/20.
+2020-05-17 21:29:35 Epoch finished! Loss: 0.12526 (0.00533 | 0.11993)
+2020-05-17 21:31:52 Validation Dice Coeff: 0.92645 (best 0.92770)
+2020-05-17 21:31:52 Starting epoch 18/20.
+2020-05-17 21:40:04 Epoch finished! Loss: 0.11772 (0.00526 | 0.11245)
+2020-05-17 21:42:21 Validation Dice Coeff: 0.92768 (best 0.92770)
+2020-05-17 21:42:22 Starting epoch 19/20.
+2020-05-17 21:50:48 Epoch finished! Loss: 0.10836 (0.00499 | 0.10337)
+2020-05-17 21:53:08 Validation Dice Coeff: 0.92385 (best 0.92770)
+2020-05-17 21:53:08 Starting epoch 20/20.
+2020-05-17 22:01:12 Epoch finished! Loss: 0.09985 (0.00483 | 0.09502)
+2020-05-17 22:03:31 Validation Dice Coeff: 0.92803 (best)
