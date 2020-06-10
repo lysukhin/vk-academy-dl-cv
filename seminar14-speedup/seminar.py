@@ -4,6 +4,7 @@ import time
 
 import cv2
 import numpy as np
+import pytorch_lightning as pl
 import torch
 from tqdm import tqdm
 
@@ -77,22 +78,87 @@ def model_info(model):
     print("Number of parameters: {}".format(num_parameters))
 
 
-def eval_model(model, dataloader):
-    start_time = time.time()
-    top1_correct = []
-    top5_correct = []
-    model.eval()
-    for images, labels in tqdm(dataloader):
-        if USE_CUDA:
-            images = images.cuda()
-            labels = labels.cuda()
-        with torch.no_grad():
-            model_result = model(images)
+class Estimator(pl.LightningModule):
+    """Модуль, объединяющий модель, данные и оптимизацию."""
+    def __init__(self, model, dataset, batch_size, num_workers):
+        super().__init__()
+        self._model = model
+        self._dataset = dataset
+        self._batch_size = batch_size
+        self._num_workers = num_workers
+        self._loss = torch.nn.CrossEntropyLoss()
+        self._start_time = None
+        self._num_samples = 0
+
+    def forward(self, images):
+        return self._model(images)
+    
+    @pl.data_loader
+    def train_dataloader(self):
+        return torch.utils.data.DataLoader(self._dataset,
+                                           batch_size=self._batch_size,
+                                           num_workers=self._num_workers,
+                                           pin_memory=USE_CUDA)
+    
+    def training_step(self, batch, batch_idx, optimizer_idx=None):
+        if self._start_time is None:
+            self._start_time = time.time()
+        images, labels = batch
+        result = self.forward(images)
+        loss = self._loss(result, labels)
+        self._num_samples += len(images)
+        return {"loss": loss}
+
+    def training_epoch_end(self, outputs):
+        end_time = time.time()
+        print("Speed: {:.3f} ms per sample (total {} samples)".format(
+            1000 * (end_time - self._start_time) / self._num_samples,
+            self._num_samples))
+        self._start_time = None
+        self._num_samples = 0
+        # Dummy implementation.
+        return outputs[0]
+    
+    def configure_optimizers(self):
+        return torch.optim.Adam(self._model.parameters(), lr=0.001)
+
+
+class report_time(object):
+    def __init__(self, num_samples):
+        self._start = None
+        self._num_samples = num_samples
+
+    def __enter__(self):
+        self._start = time.time()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        end = time.time()
+        print("Speed: {:.3f} ms per sample".format(1000 * (end - self._start) / self._num_samples))
+        self._start = None
+
+
+def eval_model(model, dataloader, simulate_train=False):
+    with report_time(len(dataloader.dataset)):
+        top1_correct = []
+        top5_correct = []
+        if simulate_train:
+            model.train()
+        else:
+            model.eval()
+        for images, labels in tqdm(dataloader):
+            if USE_CUDA:
+                images = images.cuda()
+                labels = labels.cuda()
+            if simulate_train:
+                model_result = model(images)
+                model_result.mean().backward()
+            else:
+                with torch.no_grad():
+                    model_result = model(images)
             predictions = model_result.topk(5, 1).indices
-        for label, topk in zip(labels, predictions):
-            top1_correct.append(bool(label == topk[0]))
-            top5_correct.append(bool(label in topk))
-    end_time = time.time()
-    print("Inference speed: {:.3f} ms per sample".format(1000 * (end_time - start_time) / len(top1_correct)))
+            for label, topk in zip(labels, predictions):
+                top1_correct.append(bool(label == topk[0]))
+                top5_correct.append(bool(label in topk))
     print("Top 1 accuracy: {:.3f}".format(np.mean(top1_correct)))
     print("Top 5 accuracy: {:.3f}".format(np.mean(top5_correct)))
