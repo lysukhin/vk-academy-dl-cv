@@ -65,7 +65,7 @@ class ImageNetDataset(torch.utils.data.Dataset):
         if self._to_tensor:
             image = image.astype(self._dtype) / 255
             image = (image - self._mean) / self._std
-            image = image.transpose((2, 0, 1))
+            image = torch.from_numpy(image.transpose((2, 0, 1)))
         return image, self._labels[index]
 
 
