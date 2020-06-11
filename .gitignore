@@ -2,3 +2,5 @@ seminar8-segmentation/*.pth.tar
 seminar8-segmentation/checkpoints.zip
 seminar14-speedup/imagenetv2-matched-frequency
 seminar14-speedup/imagenetv2-matched-frequency.tar.gz
+seminar14-speedup/trt*.pth.tar
+seminar14-speedup/lightning_logs

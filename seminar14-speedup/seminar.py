@@ -91,16 +91,19 @@ class Estimator(pl.LightningModule):
         self._num_samples = 0
 
     def forward(self, images):
+        """Применение модели."""
         return self._model(images)
     
     @pl.data_loader
     def train_dataloader(self):
+        """Создать загрузчик данных."""
         return torch.utils.data.DataLoader(self._dataset,
                                            batch_size=self._batch_size,
                                            num_workers=self._num_workers,
                                            pin_memory=USE_CUDA)
     
     def training_step(self, batch, batch_idx, optimizer_idx=None):
+        """Подсчитать loss для порции данных."""
         if self._start_time is None:
             self._start_time = time.time()
         images, labels = batch
@@ -110,6 +113,7 @@ class Estimator(pl.LightningModule):
         return {"loss": loss}
 
     def training_epoch_end(self, outputs):
+        """После эпохи выводим оценку производительности."""
         end_time = time.time()
         print("Speed: {:.3f} ms per sample (total {} samples)".format(
             1000 * (end_time - self._start_time) / self._num_samples,
@@ -120,6 +124,7 @@ class Estimator(pl.LightningModule):
         return outputs[0]
     
     def configure_optimizers(self):
+        """Создаем оптимизатор."""
         return torch.optim.Adam(self._model.parameters(), lr=0.001)
 
 
