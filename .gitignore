@@ -1,3 +1,6 @@
+*DS_Store
+*.ipynb_checkpoints
+*__pycache__
 seminar8-segmentation/*.pth.tar
 seminar8-segmentation/checkpoints.zip
 seminar14-speedup/imagenetv2-matched-frequency
