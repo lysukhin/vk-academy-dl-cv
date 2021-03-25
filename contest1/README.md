@@ -1,1 +1,0 @@
-```python hack_train.py --name "baseline" --data "PATH_TO_DATA" [--gpu]```
