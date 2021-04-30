@@ -12,17 +12,12 @@ import tqdm
 def parse_arguments():
     parser = ArgumentParser()
     parser.add_argument("--data-dir", help="Path to dir containing 'train/', 'test/', 'train.json'.")
-    parser.add_argument("--normalize", help="If True, crop & transform box using 4 corner points;"
+    parser.add_argument("--transform", help="If True, crop & transform box using 4 corner points;"
                                             "crop bounding box otherwise.", action="store_true")
     return parser.parse_args()
 
 
-def get_crop(image, box, normalize=False):
-    if normalize:
-        # TODO TIP: Maybe useful to crop using corners
-        # See cv2.getPerspectiveTransform for more
-        raise NotImplementedError
-
+def get_crop(image, box):
     # TODO TIP: Maybe adding some margin could help.
     x_min = np.clip(min(box[:, 0]), 0, image.shape[1])
     x_max = np.clip(max(box[:, 0]), 0, image.shape[1])
@@ -32,6 +27,11 @@ def get_crop(image, box, normalize=False):
 
 
 def main(args):
+    if args.transform:
+        # TODO TIP: Maybe useful to crop using corners
+        # See cv2.findHomography & cv2.warpPerspective for more
+        raise NotImplementedError
+
     config_filename = os.path.join(args.data_dir, "train.json")
     with open(config_filename, "rt") as fp:
         config = json.load(fp)
@@ -57,7 +57,7 @@ def main(args):
                 config_recognition.append(new_item)
                 continue
 
-            crop = get_crop(image, box, args.normalize)
+            crop = get_crop(image, box)
             cv2.imwrite(os.path.join(args.data_dir, crop_filename), crop)
             config_recognition.append(new_item)
 
