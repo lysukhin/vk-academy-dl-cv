@@ -3,83 +3,90 @@ import numpy as np
 import torch
 import torchvision
 from torchvision.datasets import CIFAR10
-
-import cvmade
-
-
-TRAIN_PLOT_KWARGS = {"c": "b"}
-TEST_SCATTER_KWARGS = {"c": "y", "s": 100, "zorder": 1e10}
+from matplotlib import pyplot as plt
 
 
-def train_loop(model, optimizer, loss, train_loader, n_iter, lr_scheduler=None, plot=None, plot_kwargs={}, use_cuda=False, plot_steps=10):
-    model.train()
-    losses = []
-    for i, (images, labels) in enumerate(train_loader):
-        if i == n_iter:
-            break
-        if use_cuda:
-            images = images.cuda()
-            labels = labels.cuda()
-        optimizer.zero_grad()
-        predicted = model(images)
-        loss_value = loss(predicted, labels)
-        loss_value.backward()
-        optimizer.step()
-        if lr_scheduler is not None:
-            lr_scheduler.step()
-
-        losses.append(loss_value.item())
-        if (plot is not None) and (i > 0) and (i % plot_steps == 0):
-            # Обновим график.
-            prev_loss_value = np.mean(losses[-2 * plot_steps: -plot_steps])
-            cur_loss_value = np.mean(losses[-plot_steps:])
-            if prev_loss_value is not None:
-                plot.plot([train_loader.step - plot_steps, train_loader.step], [prev_loss_value, cur_loss_value],
-                          **plot_kwargs)
-        else:
-            if i % 10 == 0:
-                print("Step {} / {}, loss: {:.4f}, learning rate: {:.4f}\r".format(i, n_iter, loss_value.item(), optimizer.param_groups[0]["lr"]), end="")
-    print(" " * 50 + "\r", end="")
-    print("Train loss: {:.4f}, learning rate: {:.4f}".format(np.mean(losses[-plot_steps:]), optimizer.param_groups[0]["lr"]))
+import pytorch_lightning as pl
 
 
-def eval_model(model, loss, testset, batch_size, use_cuda=False):
-    model.eval()
-    kwargs = {}
-    if use_cuda:
-        kwargs["pin_memory"] = True
-    test_loader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
-                                              num_workers=2,
-                                              **kwargs)
-    losses = []
-    n_correct = 0
-    n_samples = 0
-    with torch.no_grad():
-        for images, labels in test_loader:
-            if use_cuda:
-                images = images.cuda()
-                labels = labels.cuda()
-            predicted = model(images)
-            # Посчитать функцию потерь для батча.
-            loss_value = loss(predicted, labels)
-            losses.append(loss_value.item())
-            # Посчитать долю правильных ответов на батче.
-            predicted_labels = predicted.detach().max(-1)[1]
-            is_correct = predicted_labels == labels
-            n_correct += is_correct.sum().item()
-            n_samples += is_correct.numel()
-    test_loss = np.mean(losses)
-    print("Test loss:", test_loss)
-    print("Test accuracy:", n_correct / n_samples)
-    return test_loss
+def show_images_dataset(dataset, n=5, collate_fn=lambda x: x[0]):
+    """Plot images from dataset."""
+    images = [collate_fn(random.choice(dataset)) for _ in range(n)]
+    grid = torchvision.utils.make_grid(images)
+    grid -= grid.min()
+    grid /= grid.max()
+    plt.imshow(grid.permute(1, 2, 0))
+    plt.show()
+
+
+class Module(pl.LightningModule):
+    def __init__(self, model, loss_fn, optimizer_fn, trainset, testset,
+                 lr_scheduler_fn=None,
+                 batch_size=16):
+        super().__init__()
+        self._model = model
+        self._optimizer_fn = optimizer_fn
+        self._lr_scheduler_fn = lr_scheduler_fn
+        self._criterion = loss_fn()
+        self._batch_size = batch_size
+        self._trainset = trainset
+        self._testset = testset
+        
+    def forward(self, input):
+        return self._model(input)
+    
+    def training_step(self, batch, batch_idx):
+        # training_step defines the train loop. It is independent of forward
+        x, y = batch
+        logits = self._model(x)
+        loss = self._criterion(logits, y)
+        self.logger.experiment.add_scalars("loss", 
+                                           {"train": loss}, 
+                                           global_step=self.global_step)
+        self.logger.experiment.add_scalars("accuracy", 
+                                           {"train": self._accuarcy(logits, labels)}, 
+                                           global_step=self.global_step)
+        self.log("loss", loss)
+        self.log("train_accuracy")
+        return loss
+    
+    def validation_step(self, batch, batch_idx):
+        x, y = batch
+        logits = self._model(x)
+        loss = self._criterion(logits, y)
+        self.log("valid_loss", loss)
+        
+    def train_dataloader(self):
+        return torch.utils.data.DataLoader(self._trainset, batch_size=self._batch_size, shuffle=True, drop_last=True)
+    
+    def val_dataloader(self):
+        return torch.utils.data.DataLoader(self._testset, batch_size=self._batch_size, shuffle=False)
+
+    def configure_optimizers(self):
+        optimizer = self._optimizer_fn(self._model)
+        scheduler = self._lr_scheduler_fn(optimizer)
+        return [optimizer], [scheduler]
+    
+    def _accuarcy(self, logits, labels):
+        predictions = logits.argmax(-1)
+        return (predictions == labels).mean()
+    
+    
+def train_model(model, loss_fn, optimizer_fn, trainset, testset,
+                lr_scheduler_fn=None,
+                batch_size=16,
+                n_iters=2000, eval_steps=250,
+                use_cuda=False):
+    model = Module(model, loss_fn, optimizer_fn, trainset, testset,
+                   lr_scheduler_fn, batch_size)
+    trainer = pl.Trainer(gpus=int(use_cuda), max_epochs=2, val_check_interval=250)
+    trainer.fit(model)
 
 
 def train_model(model, loss_fn, optimizer_fn, trainset, testset,
                 lr_scheduler_fn=None,
                 batch_size=16,
                 n_iters=2000, eval_steps=250,
-                plot=True,
-                train_plot_kwargs=TRAIN_PLOT_KWARGS, test_scatter_kwargs=TEST_SCATTER_KWARGS,
                 use_cuda=False):
     model.initialize_weights()
     if use_cuda:
@@ -96,10 +103,7 @@ def train_model(model, loss_fn, optimizer_fn, trainset, testset,
                                                  num_workers=2, shuffle=True,
                                                  **kwargs)
     # Создаем интерактивный график. Считаем, что loss всегда меньше 3-х.
-    iplot = cvmade.plot.InteractivePlot(0, 0, n_iters, 3) if plot else None
     eval_loss = eval_model(model, loss, testset, batch_size, use_cuda=use_cuda)
-    if plot:
-        iplot.scatter([0], [eval_loss], **test_scatter_kwargs)
     i = 0
     while i < n_iters:
         print("Step", i)
@@ -122,7 +126,7 @@ def show_augmenter_results(augmenter, data_root):
         augmenter,
         torchvision.transforms.ToTensor()
     ])
-    cvmade.plot.torch.show_images_dataset([pil_image], collate_fn=transform)
+    show_images_dataset([pil_image], collate_fn=transform)
 
 
 class CheckerError(Exception):
