@@ -1,3 +1,4 @@
+import cv2
 import random
 import numpy as np
 import torch
@@ -8,6 +9,14 @@ from matplotlib import pyplot as plt
 
 import pytorch_lightning as pl
 
+
+def show_image(filename, figsize=(6, 4), dpi=120):
+    """Show image from file."""
+    image_bgr = cv2.imread(filename)
+    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    plt.figure(num=None, figsize=figsize, dpi=dpi)
+    plt.imshow(image_rgb)
+    plt.show()
 
 def show_images_dataset(dataset, n=5, collate_fn=lambda x: x[0]):
     """Plot images from dataset."""
@@ -31,34 +40,34 @@ class Module(pl.LightningModule):
         self._batch_size = batch_size
         self._trainset = trainset
         self._testset = testset
-        
+
     def forward(self, input):
         return self._model(input)
-    
+
     def training_step(self, batch, batch_idx):
         # training_step defines the train loop. It is independent of forward
         x, y = batch
         logits = self._model(x)
         loss = self._criterion(logits, y)
-        self.logger.experiment.add_scalars("loss", 
-                                           {"train": loss}, 
+        self.logger.experiment.add_scalars("loss",
+                                           {"train": loss},
                                            global_step=self.global_step)
-        self.logger.experiment.add_scalars("accuracy", 
-                                           {"train": self._accuarcy(logits, labels)}, 
+        self.logger.experiment.add_scalars("accuracy",
+                                           {"train": self._accuarcy(logits, labels)},
                                            global_step=self.global_step)
         self.log("loss", loss)
         self.log("train_accuracy")
         return loss
-    
+
     def validation_step(self, batch, batch_idx):
         x, y = batch
         logits = self._model(x)
         loss = self._criterion(logits, y)
         self.log("valid_loss", loss)
-        
+
     def train_dataloader(self):
         return torch.utils.data.DataLoader(self._trainset, batch_size=self._batch_size, shuffle=True, drop_last=True)
-    
+
     def val_dataloader(self):
         return torch.utils.data.DataLoader(self._testset, batch_size=self._batch_size, shuffle=False)
 
@@ -66,12 +75,12 @@ class Module(pl.LightningModule):
         optimizer = self._optimizer_fn(self._model)
         scheduler = self._lr_scheduler_fn(optimizer)
         return [optimizer], [scheduler]
-    
+
     def _accuarcy(self, logits, labels):
         predictions = logits.argmax(-1)
         return (predictions == labels).mean()
-    
-    
+
+
 def train_model(model, loss_fn, optimizer_fn, trainset, testset,
                 lr_scheduler_fn=None,
                 batch_size=16,
