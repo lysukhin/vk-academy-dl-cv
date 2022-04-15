@@ -17,8 +17,10 @@
 | -- | ---------------------------------------------- | --------------------------------------------------------- |
 | 01 | Введение в CV. Аугментации изображений.      	| [contents](computer_vision/seminar01_opencv_augment) 	|
 | 02 | Архитектуры CNN (I). ResNets. 		    	| [contents](computer_vision/seminar02_resnets)			|
-| 03 | Архитектуры CNN (II). Finetuning. 		    	| [contents TBD]()							|
-| 04 | Детектирование (I). Two-stage models. *-RCNN.	| [contents TBD]()							|
+| 03 | Архитектуры CNN (II). Finetuning. 		    	| [contents](computer_vision/seminar03_transfer_learning)	|
+| 04 | Детектирование (I). Two-stage models. *-RCNN.	| [contents](computer_vision/seminar04_objdet_rcnn)		|
+| 05 | Детектирование (I). One-stage models.		| [contents TBD]								|
+
 
 #### Homeworks
 | #  | Topics 										| Link 													|
