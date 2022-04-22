@@ -43,10 +43,10 @@ class Module(pl.LightningModule):
                                            global_step=self.global_step)
         
     def train_dataloader(self):
-        return torch.utils.data.DataLoader(self._trainset, batch_size=self._batch_size, shuffle=True, drop_last=True, num_workers=4)
+        return torch.utils.data.DataLoader(self._trainset, batch_size=self._batch_size, shuffle=True, drop_last=True, num_workers=2)
     
     def val_dataloader(self):
-        return torch.utils.data.DataLoader(self._testset, batch_size=self._batch_size, shuffle=False, num_workers=4)
+        return torch.utils.data.DataLoader(self._testset, batch_size=self._batch_size, shuffle=False, num_workers=2)
 
     def configure_optimizers(self):
         optimizer = self._optimizer_fn(self._model)
