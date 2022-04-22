@@ -13,8 +13,8 @@ wget "$URL/resources/example-mask.jpg" -O resources/example-mask.jpg
 wget "$URL/resources/00-3-noaug.jpg" -O resources/00-3-noaug.jpg
 wget "$URL/resources/u-net.jpg" -O resources/u-net.jpg
 mkdir cvmade
+mkdir cvmade/plot
 wget "$URL/cvmade" -O cvmade
-wget "$URL/cvmade/plot" -O cvmade/plot
 wget "$URL/cvmade/plot/plot.py" -O cvmade/plot/plot.py
 wget "$URL/cvmade/plot/__init__.py" -O cvmade/plot/__init__.py
 wget "$URL/cvmade/plot/torch.py" -O cvmade/plot/torch.py
