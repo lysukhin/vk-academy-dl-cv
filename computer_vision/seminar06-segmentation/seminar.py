@@ -61,11 +61,10 @@ def train_model(model, loss_fn, optimizer_fn, trainset, testset,
                 lr_scheduler_fn=None,
                 batch_size=4,
                 eval_steps=250,
-                num_epochs=1,
-                use_cuda=False):
+                num_epochs=1):
     model = Module(model, loss_fn, optimizer_fn, trainset, testset,
                    lr_scheduler_fn, batch_size)
-    trainer = pl.Trainer(gpus=int(use_cuda), max_epochs=num_epochs, val_check_interval=eval_steps)
+    trainer = pl.Trainer(gpus=int(torch.cuda.is_available()), max_epochs=num_epochs, val_check_interval=eval_steps)
     trainer.fit(model)
 
 
