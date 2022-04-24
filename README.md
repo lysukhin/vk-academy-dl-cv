@@ -20,6 +20,8 @@
 | 03 | Архитектуры CNN (II). Finetuning. 		    		| [contents](computer_vision/seminar03_transfer_learning)	|
 | 04 | Детектирование (I). Two-stage models. *-RCNN.		| [contents](computer_vision/seminar04_objdet_rcnn)		|
 | 05 | Детектирование (I). One-stage models. RetinaNet.	| [contents](computer_vision/seminar05_objdet_retina)		|
+| 06 | Сегментация. Inplace-ABN. UNet.				| [contents](computer_vision/seminar06-segmentation)		|
+
 
 
 #### Homeworks
