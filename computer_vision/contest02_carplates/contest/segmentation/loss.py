@@ -1,6 +1,3 @@
-import torch
-
-
 def dice_coeff(input, target):
     smooth = 1.
 
@@ -14,4 +11,4 @@ def dice_coeff(input, target):
 
 def dice_loss(input, target):
     # TODO TIP: Optimizing the Dice Loss usually helps segmentation a lot.
-    return - torch.log(dice_coeff(input, target))
+    raise NotImplementedError

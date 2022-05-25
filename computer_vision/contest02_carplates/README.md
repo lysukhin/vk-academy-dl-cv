@@ -9,5 +9,5 @@ python tools/create-submission.py -d PATH_TO_EXTRACTED_DATA --seg_model SEG_CKPT
 # or use (pretrained) segmentation_baseline.pth & recognition_baseline.pth
 ```
 
-* [Competition page](TODO)
+* [Competition page](https://www.kaggle.com/t/95f1ebb17fe34681a7b6a00fb01a3562)
 * [Pretrained checkpoints (baseline)](https://disk.yandex.ru/d/O1s4217MMbpwHw)

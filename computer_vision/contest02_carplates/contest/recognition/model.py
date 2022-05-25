@@ -5,7 +5,7 @@ from torchvision import models
 from .utils import decode_sequence, abc
 
 
-# Models straight from seminar 06
+# Models from seminar 7
 
 class FeatureExtractor(nn.Module):
 

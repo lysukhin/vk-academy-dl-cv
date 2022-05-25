@@ -26,7 +26,7 @@ class Resize(object):
             mask_ = cv2.resize(mask_, self.size)
         return dict(image=image_, mask=mask_)
 
-    
+
 class Normalize(object):
     def __init__(self, mean=(0.5, 0.5, 0.5), std=(0.25, 0.25, 0.25)):
         self.mean = np.asarray(mean).reshape((1, 1, 3)).astype(np.float32)
