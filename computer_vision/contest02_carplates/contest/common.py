@@ -20,6 +20,7 @@ def get_logger(filename: str) -> logging.Logger:
     return logger
 
 
+# TODO TIP: Is default resize OK for segmentation?
 def prepare_for_segmentation(image, image_size):
     """
     Scale proportionally image into fit_size and pad with zeroes to fit_size
@@ -31,6 +32,7 @@ def prepare_for_segmentation(image, image_size):
     return cv2.resize(image, image_size, interpolation=cv2.INTER_AREA), (kx, ky)
 
 
+# TODO TIP: Maybe crop objects in a more accurate way?
 def get_boxes_from_mask(mask):
     num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(mask)
     boxes = []
