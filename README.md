@@ -24,13 +24,15 @@
 | 07 | Рекуррентные сети в компьютерном зрении. CRNN.       | TBA		|
 | 08 | Metric Learning.     				                | TBA		|
 | 09 | Трекинг. Фильтр Калмана.     				        | [contents](computer_vision/seminar09_tracking)		|
+| 10 | Задача генерации. GAN (I).     				        | [contents](computer_vision/seminar10_1d_gan)	    	|
+| 11 | Задача генерации. GAN (II).     				        | [contents](computer_vision/seminar11_dcgan)	    	|
 
 
 #### Homeworks
 | #  | Topics 										| Link 													|
 | -- | -------------------------------------------- | -----------------------------------------------------	|
-| 01 | Предсказание ключевых точек лица.     | [contents](computer_vision/contest01_landmarks) 			|
-| 02 | TBD 		    | TBD		|
+| 01 | Предсказание ключевых точек лица.        | [contents](computer_vision/contest01_landmarks) 			|
+| 02 | Определение автомобильных номеров        | [contents](computer_vision/contest02_carplates) 	    	|
 
 
 #### Авторы
