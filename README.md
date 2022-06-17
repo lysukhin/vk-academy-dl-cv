@@ -21,7 +21,7 @@
 | 04 | Детектирование (I). Two-stage models. *-RCNN.		| [contents](computer_vision/seminar04_objdet_rcnn)		|
 | 05 | Детектирование (I). One-stage models. RetinaNet. 	| [contents](computer_vision/seminar05_objdet_retina)		|
 | 06 | Сегментация. Inplace-ABN. UNet.			        	| [contents](computer_vision/seminar06_segmentation)	
-| 07 | Рекуррентные сети в компьютерном зрении. CRNN.       | TBA		|
+| 07 | Рекуррентные сети в компьютерном зрении. CRNN.       | [contents](computer_vision/seminar07_crnn_carplates)		|
 | 08 | Metric Learning.     				                | TBA		|
 | 09 | Трекинг. Фильтр Калмана.     				        | [contents](computer_vision/seminar09_tracking)		|
 | 10 | Задача генерации. GAN (I).     				        | [contents](computer_vision/seminar10_1d_gan)	    	|
