@@ -26,7 +26,7 @@
 | 09 | Трекинг. Фильтр Калмана.     				        | [contents](computer_vision/seminar09_tracking)		|
 | 10 | Задача генерации. GAN (I).     				        | [contents](computer_vision/seminar10_1d_gan)	    	|
 | 11 | Задача генерации. GAN (II).     				        | [contents](computer_vision/seminar11_dcgan)	    	|
-
+| 11 | Text + Images. CLIP. DALL-E.    				        | [contents](computer_vision/seminar12_text2image)	    	|
 
 #### Homeworks
 | #  | Topics 										| Link 													|
