@@ -19,10 +19,10 @@
 | 02 | Архитектуры CNN (I). ResNets. 		    		    | [contents](computer_vision/seminar02_resnets)			|
 | 03 | Архитектуры CNN (II). Finetuning. 		    		| [contents](computer_vision/seminar03_transfer_learning)	|
 | 04 | Детектирование (I). Two-stage models. *-RCNN.		| [contents](computer_vision/seminar04_objdet_rcnn)		|
-| 05 | Детектирование (I). One-stage models. RetinaNet. 	| [contents](computer_vision/seminar05_objdet_retina)		|
-| 06 | Сегментация. Inplace-ABN. UNet.			        	| [contents](computer_vision/seminar06_segmentation)	
-| 07 | Рекуррентные сети в компьютерном зрении. CRNN.       | [contents](computer_vision/seminar07_crnn_carplates)		|
-| 08 | Metric Learning.     				                | TBA		|
+| 05 | Детектирование (I). One-stage models. RetinaNet. 	| [contents](computer_vision/seminar05_objdet_retina)	|
+| 06 | Сегментация. Inplace-ABN. UNet.			        	| [contents](computer_vision/seminar06_segmentation)    |
+| 07 | Рекуррентные сети в компьютерном зрении. CRNN.       | [contents](computer_vision/seminar07_crnn_carplates)	|
+| 08 | Metric Learning.     				                | [contents](computer_vision/seminar08_metric_learning)	|
 | 09 | Трекинг. Фильтр Калмана.     				        | [contents](computer_vision/seminar09_tracking)		|
 | 10 | Задача генерации. GAN (I).     				        | [contents](computer_vision/seminar10_1d_gan)	    	|
 | 11 | Задача генерации. GAN (II).     				        | [contents](computer_vision/seminar11_dcgan)	    	|

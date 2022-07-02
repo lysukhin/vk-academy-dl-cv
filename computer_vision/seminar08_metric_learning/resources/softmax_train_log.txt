@@ -1,0 +1,95 @@
+Previous epoch duration: 0
+Current epoch start time: 2020-04-30 15:11:22.579547
+Epoch: [0][0/314]	Time 1.097 (1.097)	Data time 0.688 (0.688)	Loss 7.1086 (7.1086)	
+Epoch: [0][100/314]	Time 0.399 (0.401)	Data time 0.000 (0.007)	Loss 7.0542 (7.0829)	
+Epoch: [0][200/314]	Time 0.396 (0.399)	Data time 0.000 (0.004)	Loss 7.0311 (7.0627)	
+Epoch: [0][300/314]	Time 0.414 (0.399)	Data time 0.000 (0.003)	Loss 6.9986 (7.0468)	
+testing lfw..
+val lfw acc 0.76917+-0.01606 , acc2 0.76600+-0.01576 
+
+Previous epoch duration: 0:02:30.485903
+Current epoch start time: 2020-04-30 15:13:56.003754
+Epoch: [1][0/314]	Time 1.098 (1.098)	Data time 0.707 (0.707)	Loss 6.9730 (6.9730)	
+Epoch: [1][100/314]	Time 0.389 (0.393)	Data time 0.000 (0.007)	Loss 6.9432 (6.9595)	
+Epoch: [1][200/314]	Time 0.382 (0.389)	Data time 0.000 (0.004)	Loss 6.9111 (6.9484)	
+Epoch: [1][300/314]	Time 0.386 (0.388)	Data time 0.000 (0.003)	Loss 6.9168 (6.9373)	
+testing lfw..
+val lfw acc 0.81650+-0.01916 , acc2 0.81600+-0.02035 
+
+Previous epoch duration: 0:02:27.355290
+Current epoch start time: 2020-04-30 15:16:26.153401
+Epoch: [2][0/314]	Time 1.181 (1.181)	Data time 0.782 (0.782)	Loss 6.8902 (6.8902)	
+Epoch: [2][100/314]	Time 0.399 (0.395)	Data time 0.000 (0.008)	Loss 6.8770 (6.8798)	
+Epoch: [2][200/314]	Time 0.386 (0.391)	Data time 0.000 (0.004)	Loss 6.8602 (6.8716)	
+Epoch: [2][300/314]	Time 0.386 (0.390)	Data time 0.000 (0.003)	Loss 6.8317 (6.8639)	
+testing lfw..
+val lfw acc 0.83117+-0.02191 , acc2 0.84267+-0.02236 
+
+Previous epoch duration: 0:02:27.857640
+Current epoch start time: 2020-04-30 15:18:56.872994
+Epoch: [3][0/314]	Time 1.151 (1.151)	Data time 0.756 (0.756)	Loss 6.8386 (6.8386)	
+Epoch: [3][100/314]	Time 0.384 (0.393)	Data time 0.000 (0.008)	Loss 6.8061 (6.8194)	
+Epoch: [3][200/314]	Time 0.387 (0.389)	Data time 0.000 (0.004)	Loss 6.7995 (6.8111)	
+Epoch: [3][300/314]	Time 0.392 (0.388)	Data time 0.000 (0.003)	Loss 6.7956 (6.8040)	
+testing lfw..
+val lfw acc 0.84250+-0.02229 , acc2 0.84800+-0.02193 
+
+Epoch     4: reducing learning rate of group 0 to 1.0000e-03.
+Previous epoch duration: 0:02:27.487728
+Current epoch start time: 2020-04-30 15:21:27.273875
+Epoch: [4][0/314]	Time 1.159 (1.159)	Data time 0.751 (0.751)	Loss 6.7859 (6.7859)	
+Epoch: [4][100/314]	Time 0.386 (0.394)	Data time 0.000 (0.008)	Loss 6.7709 (6.7664)	
+Epoch: [4][200/314]	Time 0.387 (0.391)	Data time 0.000 (0.004)	Loss 6.7699 (6.7645)	
+Epoch: [4][300/314]	Time 0.393 (0.390)	Data time 0.000 (0.003)	Loss 6.7700 (6.7631)	
+testing lfw..
+val lfw acc 0.84267+-0.02129 , acc2 0.85250+-0.02283 
+
+Previous epoch duration: 0:02:27.900769
+Current epoch start time: 2020-04-30 15:23:58.048058
+Epoch: [5][0/314]	Time 1.206 (1.206)	Data time 0.799 (0.799)	Loss 6.7746 (6.7746)	
+Epoch: [5][100/314]	Time 0.386 (0.395)	Data time 0.000 (0.008)	Loss 6.7729 (6.7574)	
+Epoch: [5][200/314]	Time 0.387 (0.391)	Data time 0.000 (0.004)	Loss 6.7621 (6.7570)	
+Epoch: [5][300/314]	Time 0.382 (0.390)	Data time 0.000 (0.003)	Loss 6.7329 (6.7558)	
+testing lfw..
+val lfw acc 0.84883+-0.02079 , acc2 0.85100+-0.02112 
+
+Previous epoch duration: 0:02:27.965647
+Current epoch start time: 2020-04-30 15:26:26.600360
+Epoch: [6][0/314]	Time 1.106 (1.106)	Data time 0.718 (0.718)	Loss 6.7627 (6.7627)	
+Epoch: [6][100/314]	Time 0.388 (0.394)	Data time 0.000 (0.007)	Loss 6.7411 (6.7508)	
+Epoch: [6][200/314]	Time 0.389 (0.391)	Data time 0.000 (0.004)	Loss 6.7569 (6.7498)	
+Epoch: [6][300/314]	Time 0.390 (0.389)	Data time 0.000 (0.003)	Loss 6.7460 (6.7501)	
+testing lfw..
+val lfw acc 0.84933+-0.02094 , acc2 0.85617+-0.02438 
+
+Epoch     7: reducing learning rate of group 0 to 1.0000e-04.
+Previous epoch duration: 0:02:27.769359
+Current epoch start time: 2020-04-30 15:28:55.396047
+Epoch: [7][0/314]	Time 1.186 (1.186)	Data time 0.787 (0.787)	Loss 6.7625 (6.7625)	
+Epoch: [7][100/314]	Time 0.380 (0.394)	Data time 0.000 (0.008)	Loss 6.7586 (6.7462)	
+Epoch: [7][200/314]	Time 0.381 (0.391)	Data time 0.000 (0.004)	Loss 6.7572 (6.7465)	
+Epoch: [7][300/314]	Time 0.390 (0.389)	Data time 0.000 (0.003)	Loss 6.7545 (6.7457)	
+testing lfw..
+val lfw acc 0.84717+-0.02071 , acc2 0.85283+-0.02207 
+
+Previous epoch duration: 0:02:27.554269
+Current epoch start time: 2020-04-30 15:31:23.538708
+Epoch: [8][0/314]	Time 1.148 (1.148)	Data time 0.748 (0.748)	Loss 6.7437 (6.7437)	
+Epoch: [8][100/314]	Time 0.390 (0.395)	Data time 0.000 (0.008)	Loss 6.7394 (6.7450)	
+Epoch: [8][200/314]	Time 0.387 (0.391)	Data time 0.000 (0.004)	Loss 6.7298 (6.7448)	
+Epoch: [8][300/314]	Time 0.388 (0.390)	Data time 0.000 (0.003)	Loss 6.7442 (6.7450)	
+testing lfw..
+val lfw acc 0.84550+-0.02107 , acc2 0.85367+-0.02207 
+
+Previous epoch duration: 0:02:27.639013
+Current epoch start time: 2020-04-30 15:33:51.738875
+Epoch: [9][0/314]	Time 1.120 (1.120)	Data time 0.723 (0.723)	Loss 6.7545 (6.7545)	
+Epoch: [9][100/314]	Time 0.384 (0.394)	Data time 0.000 (0.007)	Loss 6.7630 (6.7446)	
+Epoch: [9][200/314]	Time 0.384 (0.390)	Data time 0.000 (0.004)	Loss 6.7348 (6.7445)	
+Epoch: [9][300/314]	Time 0.389 (0.389)	Data time 0.000 (0.003)	Loss 6.7525 (6.7444)	
+testing lfw..
+val lfw acc 0.84983+-0.02113 , acc2 0.85367+-0.02241 
+
+Epoch    10: reducing learning rate of group 0 to 1.0000e-05.
+Training ended, best pre1 0.8561666666666665
+
