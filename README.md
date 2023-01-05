@@ -41,3 +41,4 @@
 * [Федор Киташов](https://github.com/owoshch)
 * [Андрей Бояров](https://github.com/andrewbo29)
 * [Борис Лесцов](https://github.com/BorisLestsov)
+* [Эдуард Тянтов](https://github.com/EdwardTyantov)
