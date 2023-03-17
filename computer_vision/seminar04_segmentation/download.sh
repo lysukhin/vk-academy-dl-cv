@@ -1,4 +1,4 @@
-export URL='https://raw.githubusercontent.com/lysukhin/MADE/2023/computer_vision/seminar04-segmentation/'
+export URL='https://raw.githubusercontent.com/lysukhin/vk-academy-dl-cv/2023/computer_vision/seminar04-segmentation/'
 wget "$URL/augmentations.py"
 wget "$URL/seminar.py"
 mkdir -p resources
